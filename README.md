@@ -1,3 +1,17 @@
+# API Automation Project (Cypress)
+
+![CI](https://github.com/007will/API_Automation_Project_Cypress/actions/workflows/ci.yml/badge.svg)
+
+Project focused on API automation using Cypress (or similar), with examples of contract validation, mocking and reusable test utilities. Designed to demonstrate API test design and integration with CI reporting.
+
+Quickstart
+- Install: `npm ci`
+- Run: `npm run test:ci`
+
+What to review
+- API test organization, use of fixtures/mocks, CI artifact generation.
+
+Author: José Willams — https://github.com/007will
 # 🧪 API Automation Project — Cypress
 
 ![Cypress](https://img.shields.io/badge/Cypress-API%20Automation-green?logo=cypress)
