@@ -1,14 +1,14 @@
 import 'cypress-plugin-api';
 
-const headersServicos = {
+const headersServices = {
     'accept': '*/*',
     'Content-Type': 'multipart/form-data',
 };
 
 const { servicoAPI } = require('/cypress/dataTest/data_' + Cypress.env('ambiente') + '.js');
-const urlApiServicos = Cypress.env('api_url_services');
+const urlApiServices = Cypress.env('api_url_services');
 
-describe('API Test - Funcionalidades Serviços', () => {
+describe('API Test - Funcionalidades Services', () => {
     let token;
     let preCadastroResponse = {};
 
@@ -21,7 +21,7 @@ describe('API Test - Funcionalidades Serviços', () => {
 
 });
 
-it('Criar serviços com API', () => {
+it('Create services with APIs', () => {
   const EXPECTED_STATUS = 201;
 
   cy.loginAPI(Cypress.env('services_login'), Cypress.env('password'))
@@ -31,7 +31,7 @@ it('Criar serviços com API', () => {
       return cy.apiPostRequestWithToken(servicoAPI, urlApiServices, token, EXPECTED_STATUS);
     })
     .then((response) => {
-      // Aqui já é o resultado da requisição POST
+      // This is the result of the POST request.
       cy.log('Status recebido:', response.status);
       cy.log('Body recebido:', JSON.stringify(response.body));
 
