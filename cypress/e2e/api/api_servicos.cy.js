@@ -6,7 +6,7 @@ const headersServicos = {
 };
 
 const { servicoAPI } = require('/cypress/dataTest/data_' + Cypress.env('ambiente') + '.js');
-const urlApiServicos = Cypress.env('api_url_servicos');
+const urlApiServicos = Cypress.env('api_url_services');
 
 describe('API Test - Funcionalidades Serviços', () => {
     let token;
@@ -14,7 +14,7 @@ describe('API Test - Funcionalidades Serviços', () => {
 
     // Helper function to login and set the token
     const loginAndGetToken = () => {
-        cy.loginAPI(Cypress.env('servico_login'), Cypress.env('password')).then((response) => {
+        cy.loginAPI(Cypress.env('services_login'), Cypress.env('password')).then((response) => {
             token = response.access_token;
         });
     };
@@ -24,11 +24,11 @@ describe('API Test - Funcionalidades Serviços', () => {
 it('Criar serviços com API', () => {
   const EXPECTED_STATUS = 201;
 
-  cy.loginAPI(Cypress.env('servico_login'), Cypress.env('password'))
+  cy.loginAPI(Cypress.env('services_login'), Cypress.env('password'))
     .then((response) => {
       const token = response.access_token;
 
-      return cy.apiPostRequestWithToken(servicoAPI, urlApiServicos, token, EXPECTED_STATUS);
+      return cy.apiPostRequestWithToken(servicoAPI, urlApiServices, token, EXPECTED_STATUS);
     })
     .then((response) => {
       // Aqui já é o resultado da requisição POST
@@ -37,6 +37,6 @@ it('Criar serviços com API', () => {
 
       expect(response.status).to.eq(201);
       expect(response.body).to.have.property('message', 'Serviço criado com sucesso');
-      expect(response.body.data.name).to.include('AUTOMAÇÃO');
+      expect(response.body.data.name).to.include('Services Title - API');
     });
 });
